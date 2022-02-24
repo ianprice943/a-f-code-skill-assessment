@@ -96,8 +96,10 @@ describe("The data is rendered", () => {
         const filledTemplate = template(userObj);
         document.body.innerHTML = filledTemplate;
         expect(document.body.innerHTML).toContain("<div id=\"wrapper3\" class=\"hide\">");
+        document.getElementById('toggle3').addEventListener('click', (e) => {
+            toggleHide(e);
+        });
 
-        console.log(document.body.innerHTML);
         document.getElementById('toggle3').click();
         expect(document.getElementById('wrapper3').classList).not.toContain('hide');
 
