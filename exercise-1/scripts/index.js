@@ -48,7 +48,7 @@ async function handlebarDriver() {
             {{/each}}
         `
         const template = Handlebars.compile(list);
-        const filledTemplate = template(data);
+        const filledTemplate = template(data, {noEscape: true});
         listEl.innerHTML = filledTemplate;
     }
 }
