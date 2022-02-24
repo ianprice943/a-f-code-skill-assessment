@@ -58,4 +58,16 @@ describe("The data is rendered", () => {
         expect(filledTemplate).toContain(userArr[1].name);
     });
 
+    it("should create a button in the template that will toggle the display of the ID and created Date", () => {
+        const userObj = {
+            name: "Karl Gibson",
+            avatar: "https://cdn.fakercloud.com/avatars/beshur_128.jpg",
+            createdAt: "2013-10-27T13:52:22.484Z",
+            id: "3"
+        }
+
+        const template = Handlebars.compile(generateHandlebarTemplate());
+        const filledTemplate = template(userObj);
+        expect(filledTemplate).toContain("<button id='toggle3'>Toggle ID and Date</button>");
+    });
 });
