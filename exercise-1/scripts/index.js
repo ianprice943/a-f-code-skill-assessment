@@ -22,16 +22,7 @@ async function getData() {
 }
 
 function generateHandlebarTemplate() {
-    const template = `
-        <li>
-            <article>
-                <h3>{{this.name}}</h3>
-                <img src="{{this.avatar}}">
-                <p>{{this.createdAt}}</p>
-                <p>{{this.id}}</p>
-            </article>
-        </li>
-    `
+    const template = "<li><article><h3>{{this.name}}</h3><img src='{{this.avatar}}'><p>{{this.createdAt}}</p><p>{{this.id}}</p></article></li>"
     return template;
 }
 
@@ -48,7 +39,8 @@ async function handlebarDriver() {
             {{/each}}
         `
         const template = Handlebars.compile(list);
-        const filledTemplate = template(data, {noEscape: true});
+        const filledTemplate = template(data);
+        console.log(filledTemplate);
         listEl.innerHTML = filledTemplate;
     }
 }
