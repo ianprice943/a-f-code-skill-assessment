@@ -22,7 +22,7 @@ async function getData() {
 }
 
 function generateHandlebarTemplate() {
-    const template = "<li><article><h3>{{this.name}}</h3><img src='{{this.avatar}}'><button id='toggle{{this.id}}'>Toggle ID and Date</button><div class='hide'><p>{{this.createdAt}}</p><p>{{this.id}}</p></div></article></li>"
+    const template = "<li><article><h3>{{this.name}}</h3><img src='{{this.avatar}}'><button id='toggle{{this.id}}'>Toggle ID and Date</button><div id='wrapper{{this.id}}' class='hide'><p>{{this.createdAt}}</p><p>{{this.id}}</p></div></article></li>"
     return template;
 }
 
