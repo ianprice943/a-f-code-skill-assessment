@@ -1,8 +1,18 @@
 import Handlebars from 'handlebars';
 
 async function getData() {
+    const myHeaders = new Headers();
+    myHeaders.append('Content-Type', 'application/json');
+
+    const init = {
+        method: 'GET',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default'
+    }
+
     try {
-        const response = await fetch("https://615485ee2473940017efaed3.mockapi.io/assessment");
+        const response = await fetch("https://615485ee2473940017efaed3.mockapi.io/assessment", init);
         const data = await response.json();
         return data;
     } catch(e) {
@@ -15,9 +25,9 @@ function generateHandlebarTemplate() {
     const template = `
         <li>
             <article>
-                <h3>{{this.username}}</h3>
+                <h3>{{this.name}}</h3>
                 <img src="{{this.avatar}}">
-                <p>{{this.createdDate}}</p>
+                <p>{{this.createdAt}}</p>
                 <p>{{this.id}}</p>
             </article>
         </li>

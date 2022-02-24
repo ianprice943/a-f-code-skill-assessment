@@ -16,9 +16,9 @@ describe("The data is rendered", () => {
 
     it("should generate a handlebar template based on the object given", () => {
         const userObj = {
-            username: "Karl Gibson",
+            name: "Karl Gibson",
             avatar: "https://cdn.fakercloud.com/avatars/beshur_128.jpg",
-            createdDate: "2013-10-27T13:52:22.484Z",
+            createdAt: "2013-10-27T13:52:22.484Z",
             id: "3"
         }
 
@@ -33,15 +33,15 @@ describe("The data is rendered", () => {
     it("should loop through an array of objects and generate a template", () => {
         const userArr = [
             {
-                username: "Kate Feest",
+                name: "Kate Feest",
                 avatar: "https://cdn.fakercloud.com/avatars/antonyzotov_128.jpg",
-                createdDate: "2079-10-01T18:03:47.484Z",
+                createdAt: "2079-10-01T18:03:47.484Z",
                 id: "2"
             },
             {
-                username: "Karl Gibson",
+                name: "Karl Gibson",
                 avatar: "https://cdn.fakercloud.com/avatars/beshur_128.jpg",
-                createdDate: "2013-10-27T13:52:22.484Z",
+                createdAt: "2013-10-27T13:52:22.484Z",
                 id: "3"
             }
         ]

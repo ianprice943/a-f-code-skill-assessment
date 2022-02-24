@@ -1,10 +1,10 @@
 const path = require('path');
 
 module.exports = {
-  entry: './exercise-1/scripts/index.js',
+  entry: './scripts/index.js',
   output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'exercise-1/dist'),
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
       fallback: {
