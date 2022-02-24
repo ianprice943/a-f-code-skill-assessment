@@ -36,7 +36,6 @@ async function handlebarDriver() {
         const list = "{{#each this}}" + generateHandlebarTemplate() + "{{/each}}";
         const template = Handlebars.compile(list);
         const filledTemplate = template(data);
-        console.log(filledTemplate);
         listEl.innerHTML = filledTemplate;
     }
 }

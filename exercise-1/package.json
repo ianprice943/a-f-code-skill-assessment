@@ -16,7 +16,7 @@
   "scripts": {
     "build": "concurrently npm:watch:*",
     "watch:js": "webpack",
-    "watch:css": "sass ./styles/stylesheet.scss ./dist/stylesheet.css",
+    "watch:css": "sass --no-source-map ./styles/stylesheet.scss ./dist/stylesheet.css",
     "test": "jest"
   },
   "jest": {
