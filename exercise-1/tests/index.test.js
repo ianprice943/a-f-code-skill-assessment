@@ -81,6 +81,6 @@ describe("The data is rendered", () => {
 
         const template = Handlebars.compile(generateHandlebarTemplate());
         const filledTemplate = template(userObj);
-        expect(filledTemplate).toContain("<div class='hide'><p>{{this.createdAt}}</p><p>{{this.id}}</p></div>");
+        expect(filledTemplate).toContain("<div class='hide'><p>2013-10-27T13:52:22.484Z</p><p>3</p></div>");
     });
 });
