@@ -83,4 +83,23 @@ describe("The data is rendered", () => {
         const filledTemplate = template(userObj);
         expect(filledTemplate).toContain("<div id='wrapper3' class='hide'><p>2013-10-27T13:52:22.484Z</p><p>3</p></div>");
     });
+
+    it("should click the button and toggle off the 'hide' class", () => {
+        const userObj = {
+            name: "Karl Gibson",
+            avatar: "https://cdn.fakercloud.com/avatars/beshur_128.jpg",
+            createdAt: "2013-10-27T13:52:22.484Z",
+            id: "3"
+        }
+
+        const template = Handlebars.compile(generateHandlebarTemplate());
+        const filledTemplate = template(userObj);
+        document.body.innerHTML = filledTemplate;
+        expect(document.body.innerHTML).toContain("<div id=\"wrapper3\" class=\"hide\">");
+
+        console.log(document.body.innerHTML);
+        document.getElementById('toggle3').click();
+        expect(document.getElementById('wrapper3').classList).not.toContain('hide');
+
+    });
 });
