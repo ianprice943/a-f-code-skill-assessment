@@ -70,4 +70,17 @@ describe("The data is rendered", () => {
         const filledTemplate = template(userObj);
         expect(filledTemplate).toContain("<button id='toggle3'>Toggle ID and Date</button>");
     });
+
+    it("should wrap the id and creation date in a div that will have its visibility toggled", () => {
+        const userObj = {
+            name: "Karl Gibson",
+            avatar: "https://cdn.fakercloud.com/avatars/beshur_128.jpg",
+            createdAt: "2013-10-27T13:52:22.484Z",
+            id: "3"
+        }
+
+        const template = Handlebars.compile(generateHandlebarTemplate());
+        const filledTemplate = template(userObj);
+        expect(filledTemplate).toContain("<div class='hide'><p>{{this.createdAt}}</p><p>{{this.id}}</p></div>");
+    });
 });
