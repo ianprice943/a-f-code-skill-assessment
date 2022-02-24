@@ -1,6 +1,6 @@
 import { enableFetchMocks } from 'jest-fetch-mock';
 enableFetchMocks();
-import { getData, generateHandlebarTemplate } from '../scripts/index';
+import { getData, generateHandlebarTemplate, toggleHide } from '../scripts/index';
 import Handlebars from 'handlebars';
 
 describe("The data is fetched", () => {

@@ -40,6 +40,13 @@ async function handlebarDriver() {
     }
 }
 
+function toggleHide(event) {
+    let id = event.target.id;
+    id = id.substring(id.length - 1);
+    const wrapper = document.getElementById('wrapper' + id);
+    wrapper.classList.toggle('hide');
+}
+
 handlebarDriver();
 
-export { getData, generateHandlebarTemplate };
+export { getData, generateHandlebarTemplate, toggleHide };
