@@ -24,9 +24,9 @@ describe("The data is rendered", () => {
 
         const template = Handlebars.compile(generateHandlebarTemplate());
         const filledTemplate = template(userObj);
-        expect(filledTemplate).toContain(userObj.username);
+        expect(filledTemplate).toContain(userObj.name);
         expect(filledTemplate).toContain(userObj.avatar);
-        expect(filledTemplate).toContain(userObj.createdDate);
+        expect(filledTemplate).toContain(userObj.createdAt);
         expect(filledTemplate).toContain(userObj.id);
     });
 
@@ -54,8 +54,8 @@ describe("The data is rendered", () => {
         const template = Handlebars.compile(list);
         const filledTemplate = template(userArr);
 
-        expect(filledTemplate).toContain(userArr[0].username);
-        expect(filledTemplate).toContain(userArr[1].username);
+        expect(filledTemplate).toContain(userArr[0].name);
+        expect(filledTemplate).toContain(userArr[1].name);
     });
 
 });
