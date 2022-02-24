@@ -10,7 +10,7 @@ footer {
 }
 
 .hide {
-    display: none;
+    visibility: hidden;
 }
 
 #users {
@@ -29,7 +29,9 @@ footer {
         display: flex;
 
         article {
+            width: 100%;
             flex-flow: column nowrap;
+            text-align: center;
 
             img {
                 max-width: 100%;

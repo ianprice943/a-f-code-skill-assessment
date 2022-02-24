@@ -37,6 +37,12 @@ async function handlebarDriver() {
         const template = Handlebars.compile(list);
         const filledTemplate = template(data);
         listEl.innerHTML = filledTemplate;
+        const buttons = document.querySelectorAll(`[id^="toggle"]`);
+        buttons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                toggleHide(e);
+            });
+        });
     }
 }
 
