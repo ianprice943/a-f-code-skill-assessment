@@ -33,11 +33,7 @@ async function handlebarDriver() {
     if(data.failed) {
         listEl.innerHTML = data.failed;
     } else {
-        const list = `
-            {{#each this}}
-                ${generateHandlebarTemplate}
-            {{/each}}
-        `
+        const list = "{{#each this}}" + generateHandlebarTemplate() + "{{/each}}";
         const template = Handlebars.compile(list);
         const filledTemplate = template(data);
         console.log(filledTemplate);
