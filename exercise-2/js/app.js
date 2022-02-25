@@ -1,4 +1,3 @@
-var taskInput = document.getElementById("new-task");
 var addButton = document.getElementsByTagName("button")[0];
 var incompleteTasksHolder = document.getElementById("incomplete-tasks");
 var completedTasksHolder = document.getElementById("completed-tasks");
@@ -29,6 +28,7 @@ var createNewTaskElement = function(taskString, arr) {
 };
 
 var addTask = function () {
+  var taskInput = document.getElementById("new-task");
   var listItemName = taskInput.value || "New Item"
   listItem = createNewTaskElement(listItemName)
   incompleteTasksHolder.appendChild(listItem)
@@ -81,12 +81,45 @@ var bindTaskEvents = function(taskListItem, checkBoxEventHandler, cb) {
   checkBox.onchange = checkBoxEventHandler;
 };
 
+var retrieveLocalStorage = function() {
+  if(localStorage.getItem('tasks') !== null) {
+    var tasks = localStorage.getItem('tasks');
+    tasks = JSON.parse(tasks);
+
+    for(var i = 0; i < tasks.length; i++) {
+      var task = createNewTaskElement(tasks[i]);
+      if(task.complete) {
+        completedTasksHolder.append(task);
+        bindTaskEvents(task, taskIncomplete)
+        taskInput.value = "";
+      } else {
+        incompleteTasksHolder.append(task);
+        bindTaskEvents(task, taskCompleted)
+        taskInput.value = "";
+      }
+    }
+  }
+}
+
+var addToLocalStorage = function(task, complete) {
+  var tasks;
+  if(localStorage.getItem('tasks') !== null) {
+    tasks = localStorage.getItem('tasks');
+    tasks = JSON.parse(tasks);
+  } else {
+    tasks = [];
+  }
+  tasks.push({"task": task, "complete": complete});
+  tasks = JSON.stringify(tasks);
+  localStorage.setItem('tasks', tasks);
+}
+
 addButton.addEventListener("click", addTask);
 
-for (var i = 0; i < incompleteTasksHolder.children.length; i++) {
-  bindTaskEvents(incompleteTasksHolder.children[i], taskCompleted);
-}
+// for (var i = 0; i < incompleteTasksHolder.children.length; i++) {
+//   bindTaskEvents(incompleteTasksHolder.children[i], taskCompleted);
+// }
 
-for (var i = 0; i < completedTasksHolder.children.length; i++) {
-  bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
-}
+// for (var i = 0; i < completedTasksHolder.children.length; i++) {
+//   bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
+// }
