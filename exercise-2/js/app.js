@@ -85,7 +85,15 @@ var retrieveLocalStorage = function() {
   if(localStorage.getItem('tasks') !== null) {
     var tasks = localStorage.getItem('tasks');
     tasks = JSON.parse(tasks);
+    return tasks;
+  } else {
+    return null;
+  }
+}
 
+var appendToTaskLists = function() {
+  var tasks = retrieveLocalStorage();
+  if(tasks !== null) {
     for(var i = 0; i < tasks.length; i++) {
       var task = createNewTaskElement(tasks[i]);
       if(task.complete) {
@@ -102,16 +110,29 @@ var retrieveLocalStorage = function() {
 }
 
 var addToLocalStorage = function(task, complete) {
-  var tasks;
-  if(localStorage.getItem('tasks') !== null) {
-    tasks = localStorage.getItem('tasks');
-    tasks = JSON.parse(tasks);
-  } else {
+  var tasks = retrieveLocalStorage();
+  if(tasks === null) {
     tasks = [];
   }
   tasks.push({"task": task, "complete": complete});
   tasks = JSON.stringify(tasks);
   localStorage.setItem('tasks', tasks);
+}
+
+var deleteFromLocalStorage = function(task) {
+  var tasks = retrieveLocalStorage();
+  if(tasks !== null) {
+    tasks = localStorage.getItem('tasks');
+    tasks = JSON.parse(tasks);
+    for(var i = 0; i < tasks.length; i++) {
+      if(tasks[i].task === task) {
+        tasks.splice(i, 1);
+        tasks = JSON.stringify(tasks);
+        localStorage.setItem('tasks', tasks);
+        return;
+      }
+    }
+  }
 }
 
 addButton.addEventListener("click", addTask);
