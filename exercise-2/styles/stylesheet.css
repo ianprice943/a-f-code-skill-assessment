@@ -3,32 +3,33 @@ html body {
   background: #ffffff;
   color: #333;
   font-family: Lato, sans-serif;
+  /* Heading */
+  /* New Task */
+  /* Task list */
+  /* Completed */
+  /* Edit Task */
 }
-
 html body .container {
   display: block;
   width: 600px;
   margin: 100px auto 0;
 }
-
 html body ul {
   margin: 0px;
   padding: 0;
 }
-
 html body li * {
   float: left;
 }
-
-html body li, html body h3 {
+html body li,
+html body h3 {
   clear: both;
   list-style: none;
 }
-
-html body input, html body button {
+html body input,
+html body button {
   outline: none;
 }
-
 html body button {
   background: none;
   border: 0px;
@@ -39,18 +40,14 @@ html body button {
   font-family: Lato, sans-serif;
   cursor: pointer;
 }
-
+html body button:hover {
+  color: #333;
+}
 html body button:focus {
   outline: 1px solid black;
   border-radius: 5px;
-}
-
-html body button:hover,
-html body button:focus {
   color: #333;
 }
-
-/* Heading */
 html body h3,
 html body label[for=new-task] {
   color: #333333;
@@ -61,7 +58,6 @@ html body label[for=new-task] {
   margin: 0px;
   text-transform: uppercase;
 }
-
 html body input[type=text] {
   margin: 0;
   font-size: 18px;
@@ -74,70 +70,56 @@ html body input[type=text] {
   font-family: Lato, sans-serif;
   color: #888;
 }
-
 html body input[type=text]:focus {
   color: #333;
 }
-
-/* New Task */
 html body input#new-task {
   float: left;
   width: 318px;
 }
-
 html body div > button:hover,
 html body div > button:focus {
   color: #0FC57C;
 }
-
-/* Task list */
 html body li {
   overflow: hidden;
   padding: 20px 0px;
   border-bottom: 1px solid #eee;
 }
-
 html body li > input[type=checkbox] {
   margin: 0 10px;
   position: relative;
   top: 15px;
 }
-
+html body li > input[type=checkbox]:hover {
+  cursor: pointer;
+}
 html body li > input[type=checkbox]:focus {
   outline: 1px solid black;
 }
-
 html body li > label {
   font-size: 18px;
   line-height: 40px;
   width: 237px;
   padding: 0 0 0 11px;
 }
-
 html body li > input[type=text] {
   width: 226px;
 }
-
 html body li > .delete:hover,
 html body li > .delete:focus {
   color: #CF2323;
 }
-
-/* Completed */
 html body #completed-tasks label {
   text-decoration: line-through;
   color: #888;
 }
-
-/* Edit Task */
 html body ul li input[type=text] {
   display: none;
 }
-
 html body ul li.editMode input[type=text] {
   display: block;
 }
-
 html body ul li.editMode label {
   display: none;
 }
