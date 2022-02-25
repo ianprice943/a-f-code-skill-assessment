@@ -45,7 +45,8 @@ html body button:focus {
   border-radius: 5px;
 }
 
-html body button:hover {
+html body button:hover,
+html body button:focus {
   color: #333;
 }
 
@@ -84,8 +85,8 @@ html body input#new-task {
   width: 318px;
 }
 
-html body p > button:hover,
-html body p > button:focus {
+html body div > button:hover,
+html body div > button:focus {
   color: #0FC57C;
 }
 
