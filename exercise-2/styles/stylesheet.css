@@ -40,7 +40,12 @@ html body button {
   cursor: pointer;
 }
 
-html body button :hover {
+html body button:focus {
+  outline: 1px solid black;
+  border-radius: 5px;
+}
+
+html body button:hover {
   color: #333;
 }
 
@@ -69,7 +74,7 @@ html body input[type=text] {
   color: #888;
 }
 
-html body input[type=text] :focus {
+html body input[type=text]:focus {
   color: #333;
 }
 
@@ -79,7 +84,8 @@ html body input#new-task {
   width: 318px;
 }
 
-html body p > button :hover {
+html body p > button:hover,
+html body p > button:focus {
   color: #0FC57C;
 }
 
@@ -96,6 +102,10 @@ html body li > input[type=checkbox] {
   top: 15px;
 }
 
+html body li > input[type=checkbox]:focus {
+  outline: 1px solid black;
+}
+
 html body li > label {
   font-size: 18px;
   line-height: 40px;
@@ -107,7 +117,8 @@ html body li > input[type=text] {
   width: 226px;
 }
 
-html body li > .delete :hover {
+html body li > .delete:hover,
+html body li > .delete:focus {
   color: #CF2323;
 }
 

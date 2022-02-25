@@ -17,6 +17,7 @@ var createNewTaskElement = function(taskString, arr) {
   editButton.className = "edit";
   deleteButton.innerText = "Delete";
   deleteButton.className = "delete";
+  // label.setAttribute('tabindex', 0);
   label.innerText = taskString;
 
   listItem.appendChild(checkBox);
