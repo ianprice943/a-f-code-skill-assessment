@@ -6,8 +6,13 @@ html body {
 
     .container {
         display: block;
-        width: 600px;
+        max-width: 600px;
         margin: 100px auto 0;
+    }
+
+    main > div {
+        display: flex;
+        flex-flow: column;
     }
 
     ul {
@@ -15,14 +20,9 @@ html body {
         padding: 0;
     }
 
-    li * {
-        float: left;
-    }
-
-    li,
-    h3 {
-        clear :both;
+    li {
         list-style :none;
+        display: flex;
     }
 
     input,
@@ -36,7 +36,6 @@ html body {
         color: #888888;
         font-size: 15px;
         width: 60px;
-        margin: 10px 0 0;
         font-family: Lato, sans-serif;
         cursor: pointer;
     }
@@ -79,9 +78,9 @@ html body {
 
     /* New Task */
     input#new-task   {
-        float: left;
         width: 318px;
     }
+
     div > button:hover,
     div > button:focus {
         color: #0FC57C;
@@ -129,12 +128,40 @@ html body {
     
     /* Edit Task */
     ul li input[type=text] {
-        display :none;
+        display: none;
     }
     ul li.editMode input[type=text] {
-        display :block;
+        display: block;
     }
     ul li.editMode label {
-        display :none;
+        display: none;
+    }
+
+    @media screen and (max-width: 600px) {
+        .container {
+            max-width: unset;
+            min-width: 375px;
+            width: 80%;
+        }
+        input#new-task   {
+            width: 240px;
+        }
+        li > label {
+            width: auto;
+            flex-grow: 1;
+        }
+        li > input[type="text"] {
+            width: auto;
+            flex-grow: 1;
+        }
+    }
+
+    @media screen and (max-width: 375px) {
+        .container {
+            width: 100%;
+        }
+        input#new-task   {
+            width: 180px;
+        }
     }
 }
