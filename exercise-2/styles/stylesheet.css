@@ -81,6 +81,9 @@ html body div > button:hover,
 html body div > button:focus {
   color: #0FC57C;
 }
+html body #error-text {
+  color: #CF2323;
+}
 html body li {
   overflow: hidden;
   padding: 20px 0px;
